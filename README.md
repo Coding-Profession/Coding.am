@@ -1,32 +1,64 @@
 # Coding.am
+const generateQuoteBtn = document.getElementById("quoteBtn");
+const quoteOutput = document.getElementById("quoteOutput");
+const authorOutput = document.getElementById("authorOutput");
 
-<html lang="Armenian">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Հարց - Պատասխան</title>
-    <link rel="stylesheet" href="index.css" />
+generateQuoteBtn.addEventListener("click", generateQuote);
+
+// https://www.shopify.com/blog/motivational-quotes
+const arrayOfQuotes = [
+  {
     
-  </head>
-  
- 
-  <body>
-   
-    <div class="quote-container">
-      <div id="quoteOutput">
-        <span>
-            Այստեղ կտրվեն հարցեր դուք պետք է պատասխանեք այդ հարցին իսկ եթե չգիտեք պատասխանը կարողեք անցնել մյուս հարցին և պատասխանել ցանկանումենք հաճելի օր ձեզ 😍
-
-        </span>
-      </div>
-
-    <button class="btn" id="quoteBtn">Սկսել!</button>
-
+    quote:
+      "",
+  },
+  {
     
-   
-
-    <script src="index.js"></script>
+    quote:
+      "Եթե չլինեյն խաղարկություներ արդյոք դուք կսիրեյք ProTanki Online խաղը ?",
+  },
+  {
     
+    quote:
+      "Երբ է բացվել ProTanki Online խաղը ?",
+  },
+  {
+    
+    quote: "Ինչը կցանկանայք փոխել ProTanki Online խաղում ?",
+  },
+  {
+    
+    quote:
+      "Քանի տարի է որ ProTanki Online խաղը գործում է ?",
+  },
+  {
+    
+    quote:
+      "ProTanki Online խաղի վերաբերյալ որ YouTuber-ի վիդեոներնեք հավանում ?",
+  },
+  {
+    
+    quote:
+      "Ինչպիսի վիդեոներ կցանկանայք տեսնել armen5505 ալիքում ProTanki Online խաղի վերաբերյալ ?",
+  },
 
-</html>
+  {
+ quote:
+      "Ինչու ProTanki Online խաղում Skiner օրինակ XT PRIME Legacy չեն ավելացնում ?"
+  },
+  {
+   quote:
+   "ProTanki online խաղում առաջին անգամ երբ է եղել Հայկական XP/BP տուրնիռ"
+  },
+
+  {
+    quote:
+    "ProTanki Online խաղում  ով  է առաջին հայ XP/BP խաղացողը ?"
+  }
+];
+
+function generateQuote() {
+  let random = Number.parseInt(Math.random() * arrayOfQuotes.length + 1);
+  quoteOutput.innerHTML = `<span>${arrayOfQuotes[random].quote}</span>`;
+  authorOutput.innerHTML = `<small>-${arrayOfQuotes[random].author}-</small>`;
+}
